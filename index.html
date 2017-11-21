@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RealTimePush</title>
+		<script src="./stomp.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				init();
+			}
+
+			function init(header) {
+			   var url = "ws://localhost:61614";
+			   const ws = new WebSocket(url,'stomp');
+			   ws.onopen = function(){
+			   	ws.send("CONNECT\nlogin:'admin'\n\npasscode:'admin'\n\n\0");
+  				ws.send("SUBSCRIBE\ndestination:sample.quequ.jstest\n\nack:auto\n\n\0");
+ 					//ws.send('DISCONNECT\n\n\0');
+			   }
+			   ws.onmessage = function(message){
+			   	console.log(message);
+			   	if (message.data.startsWith('MESSAGE'))
+    				console.log(message.data);
+			   }
+			}
+		</script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="card text-center" style="width: 20rem;margin: auto;margin-top: 20rem">
+			<div class="card-body">
+				<h4 class="card-title">Card title</h4>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<footer class="blockquote-footer">
+					<small class="text-muted" id="console-area">
+					Someone famous in <cite title="Source Title">Source Title</cite>
+					</small>
+				</footer>
+			</div>
+		</div>
+	</body>
+</html>

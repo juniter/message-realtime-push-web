@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RealTimePush</title>
+		<script src="./stomp.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="./jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			function message(msg) {
+			    return "<div class='row'><div class='col-1'>" +
+			        "<img src='./img/qq-a.png' alt='QQ' class='rounded-circle avatar'>" +
+			        "</div>" +
+			        "<div class='col-11'>" +
+			        "<div class='im-message'>" +
+			        "<p>" + msg + "</p>" +
+			        "</div>" +
+			        "</div>" +
+			        "</div>";
+			}
+
+			function message2(msg) {
+			    return "<div class=\"im-message\">" +
+			        "<p>" + msg + "</p>" +
+			        "</div>";
+			}
+
+			$(document).ready(function() {
+				var node = message("添加新元素");
+				console.log(node);
+			    $(node).appendTo(".im-body-center");
+			});
+		</script>
+		<link rel="stylesheet" type="text/css" href="./im.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row im-header" style="height:10%">
+				<div class="col-sm-2">
+					<h4 class="text-light">Enter Your Name</h3>
+				</div>
+				<div class="col-sm-5">
+					<h4 class="text-light">Point To Point</h3>
+				</div>
+				<div class="col-sm-5">
+					<h4 class="text-light">Point To Group</h3>
+				</div>
+			</div>
+			<div class="row im-body" style="height:90%">
+				<div class="col-sm-2 im-body-left">
+					<form>
+						<div class="form-group row">
+							<label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+							<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+								<div class="input-group-addon form-control-sm">@</div>
+								<input type="text" class="form-control form-control-sm" placeholder="Username">
+							</div>
+						</div>
+						<div class="form-group row">
+							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+						</div>
+					</form>
+				</div>
+				<div class="col-sm-5 im-body-center" id="p2p">
+					<div class="row">
+						<div class="col-1">
+							<img src="./img/qq-a.png" alt="QQ" class="rounded-circle avatar">
+						</div>
+						<div class="col-11">
+							<div class="im-message">
+								<p>This is a success alert—chfasdfasdfasdeck it out!</p>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="txtx">
+						<div class="col-1">
+							<img src="./img/qq-a.png" alt="QQ" class="rounded-circle avatar">
+						</div>
+						<div class="col-11">
+							<div class="im-message">
+								<p>This is a success alerddt—check it out!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-5 im-body-right" id="p2g">
+					<div class="row">
+						<div class="col-1">
+							<img src="./img/qq-a.png" alt="QQ" class="rounded-circle avatar">
+						</div>
+						<div class="col-11">
+							<div class="im-message">
+								<p>This is a success alerddt—check it out!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
